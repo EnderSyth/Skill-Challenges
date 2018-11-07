@@ -82,7 +82,7 @@ function Skill-Challenge {
             if ($completedJobs)
             {
                 ## While we have completed jobs we'll recieve/remove them, then measure their sum as they are just arrays of 0/1. This is many times faster for large arrays then my prior method  of where $true.
-                $Passed += (Receive-Job $completedJobs[$j] -AutoRemoveJob -Wait | Measure-Object -Sum).
+                $Passed += (Receive-Job $completedJobs[$j] -AutoRemoveJob -Wait | Measure-Object -Sum).Sum
                 $j++ # Since we don't want to keep calling the get-job we'll just itterate using $j, its set in the fail side of this statement.
 
                 ## Check if we've itterated through the completed jobs, if so then null the value to get new jobs on next loop, will exit this loop and spin up more threads as we're no longer above threadcount
