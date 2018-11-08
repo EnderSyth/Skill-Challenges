@@ -25,7 +25,7 @@ $intialState = {
         } # End of loop to see if we pass or fail the trial
 
         # Check if we failed or passed and return a 1 only if passed (used to add up success via measure-object, faster then checking through a boolean array)
-        if($fail -ge 3){$output = 0}else{$output = 1}
+        if($fail -ge $failcount){$output = 0}else{$output = 1}
         return $output
     }
 }
